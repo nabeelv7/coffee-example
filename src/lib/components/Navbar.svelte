@@ -1,4 +1,5 @@
 <script>
+  import { slide } from "svelte/transition";
   let mobileMenuOpen = $state(false);
 
   const toggleMenu = () => {
@@ -37,23 +38,34 @@
 <!-- Mobile Menu -->
 {#if mobileMenuOpen}
   <div
+    transition:slide
     class="md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-10"
   >
-    <div class="flex justify-end p-6">
+    <div class="flex justify-end px-9 py-6">
       <button
         onclick={toggleMenu}
         aria-label="Close menu"
-        class="text-white text-3xl"
+        class="text-white"
       >
-        <i class="fas fa-times" aria-hidden="true"></i>
+        <i class="fas fa-times text-4xl" aria-hidden="true"></i>
       </button>
     </div>
-    <ul class="flex flex-col items-center text-white text-xl">
-      <li><a href="#" class="py-3" aria-label="Home">Home</a></li>
-      <li><a href="#" class="py-3" aria-label="Menu">Menu</a></li>
-      <li><a href="#" class="py-3" aria-label="About Us">About Us</a></li>
-      <li><a href="#" class="py-3" aria-label="Facilities">Facilities</a></li>
-      <li><a href="#" class="py-3" aria-label="Sign In">Sign In</a></li>
+    <ul class="flex flex-col gap-3 px-10 text-white text-xl">
+      <li class="text-3xl border-b-1 border-b-white py-5">
+        <a href="#" class="py-3" aria-label="Home">Home</a>
+      </li>
+      <li class="text-3xl border-b-1 border-b-white py-5">
+        <a href="#" class="py-3" aria-label="Menu">Menu</a>
+      </li>
+      <li class="text-3xl border-b-1 border-b-white py-5">
+        <a href="#" class="py-3" aria-label="About Us">About Us</a>
+      </li>
+      <li class="text-3xl border-b-1 border-b-white py-5">
+        <a href="#" class="py-3" aria-label="Facilities">Facilities</a>
+      </li>
+      <li class="text-3xl border-b-1 border-b-white py-5">
+        <a href="#" class="py-3" aria-label="Sign In">Sign In</a>
+      </li>
     </ul>
   </div>
 {/if}
