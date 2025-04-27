@@ -2,9 +2,18 @@
   import Navbar from "$lib/components/Navbar.svelte";
 
   const coffees = [
-    { name: "Cappuccino", img: "/cappuccino.jpg" },
-    { name: "Americano", img: "/americano.jpg" },
-    { name: "Espresso", img: "/espresso.jpg" },
+    {
+      name: "Cappuccino",
+      img: "https://plus.unsplash.com/premium_photo-1674327105074-46dd8319164b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      name: "Americano",
+      img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      name: "Espresso",
+      img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
   ];
 
   const testimonials = [
@@ -23,17 +32,25 @@
 
 <!-- hero section -->
 <section
-  class="flex lg:flex-row flex-col bg-[#1c1b18] text-white min-h-screen lg:px-20 px-3 py-20"
+  class="flex lg:flex-row flex-col text-white min-h-screen lg:px-20 px-3 py-24"
 >
+  <!-- bg -->
+  <div
+    class="flex justify-center items-center min-h-screen fixed top-0 right-0 -z-10 bg-[#1c1b18] w-full"
+  >
+    <h1 class="text-gray-500 opacity-20 lg:text-[500px] text-[200px] font-bold">
+      Caffeine
+    </h1>
+  </div>
   <!-- Hero Section -->
   <div
     class="flex md:flex-row flex-col items-center lg:p-10 p-3 gap-8 lg:w-1/2"
   >
     <div class="flex flex-col gap-10 lg:p-10 p-3">
-      <h2 class="text-5xl md:text-6xl font-bold text-balance">
+      <h2 class="text-5xl md:text-7xl font-bold text-balance">
         Discover The Art Of Perfect Coffee
       </h2>
-      <p class="text-gray-300 text-balance">
+      <p class="text-gray-300 text-balance md:text-3xl">
         Experience the rich and bold flavors of our exquisite coffee blends,
         crafted to awaken your senses and start your day right.
       </p>
@@ -73,21 +90,25 @@
 
 <!-- Coffees Section -->
 <section class="bg-[#f3e4d4] py-20">
-  <div class="max-w-6xl mx-auto px-6">
-    <h3 class="text-3xl font-bold text-center mb-12">Our Coffees</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+  <div class="mx-auto px-6">
+    <h3 class="text-5xl font-bold text-center mb-12">Our Coffees</h3>
+    <div class="flex flex-wrap gap-10 justify-center items-center">
       {#each coffees as coffee}
-        <div class="bg-white shadow-lg p-6 rounded-lg text-center">
+        <div class="bg-white shadow-lg p-3 rounded-xl w-120">
           <img
             src={coffee.img}
             alt={coffee.name}
-            class="w-full h-40 object-cover mb-6 rounded"
+            class="w-full h-70 object-cover mb-6 rounded"
           />
-          <h4 class="text-xl font-bold mb-4">{coffee.name}</h4>
-          <button
-            class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
+          <div>
+            <h4 class="text-3xl font-bold mb-4">{coffee.name}</h4>
+          </div>
+          <div class="flex justify-end">
+            <button
+            class="bg-black text-white text-3xl px-4 py-2 rounded hover:bg-gray-800 active:scale-95 transition-all cursor-pointer"
             >Order Now</button
-          >
+            >
+          </div>
         </div>
       {/each}
     </div>
