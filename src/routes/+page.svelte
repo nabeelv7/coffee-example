@@ -1,4 +1,6 @@
 <script>
+  import Navbar from "$lib/components/Navbar.svelte";
+
   const coffees = [
     { name: "Cappuccino", img: "/cappuccino.jpg" },
     { name: "Americano", img: "/americano.jpg" },
@@ -17,28 +19,22 @@
 </script>
 
 <!-- Navbar -->
-<nav class="flex justify-between items-center p-6">
-  <h1 class="text-2xl font-bold">Caffeine</h1>
-  <ul class="hidden md:flex gap-8 text-lg">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Menu</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Facilities</a></li>
-  </ul>
-  <button class="hidden md:block border px-4 py-2 rounded">Sign In</button>
-</nav>
+<Navbar />
 
 <!-- hero section -->
-<section class="flex lg:flex-row flex-col bg-[#1c1b18] text-white min-h-screen lg:px-10 px-3">
+<section
+  class="flex lg:flex-row flex-col bg-[#1c1b18] text-white min-h-screen lg:px-20 px-3 py-20"
+>
   <!-- Hero Section -->
-  <div class="flex md:flex-row flex-col items-center p-10 gap-8 lg:w-1/2">
-    <div class="flex flex-col gap-10 p-10">
-      <h2 class="text-5xl md:text-6xl font-bold">
+  <div
+    class="flex md:flex-row flex-col items-center lg:p-10 p-3 gap-8 lg:w-1/2"
+  >
+    <div class="flex flex-col gap-10 lg:p-10 p-3">
+      <h2 class="text-5xl md:text-6xl font-bold text-balance">
         Discover The Art Of Perfect Coffee
       </h2>
       <p class="text-gray-300 text-balance">
         Experience the rich and bold flavors of our exquisite coffee blends,
-        <br>
         crafted to awaken your senses and start your day right.
       </p>
       <div class="flex gap-4">
