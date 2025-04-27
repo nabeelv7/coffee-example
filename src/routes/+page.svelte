@@ -1,4 +1,18 @@
 <script>
+  // AOS
+  import { onMount } from "svelte";
+  import "aos/dist/aos.css"; // Import AOS styles
+
+  // Initialize AOS when the component is mounted
+  onMount(() => {
+    import("aos").then((AOS) => {
+      AOS.init({
+        duration: 500, // Animation duration
+        easing: "ease-out", // Easing function
+      });
+    });
+  });
+
   import Navbar from "$lib/components/Navbar.svelte";
 
   const coffees = [
@@ -100,8 +114,12 @@
   <div class="mx-auto px-6">
     <h3 class="text-5xl font-bold text-center mb-12">Our Coffees</h3>
     <div class="flex flex-wrap gap-10 justify-center items-center">
-      {#each coffees as coffee}
-        <div class="bg-white shadow-lg p-3 rounded-xl w-120">
+      {#each coffees as coffee, i}
+        <div
+          data-aos="fade-up"
+          data-aos-delay="{i}00"
+          class="bg-white shadow-lg p-3 rounded-xl w-120"
+        >
           <img
             src={coffee.img}
             alt={coffee.name}
@@ -130,7 +148,10 @@
     </h3>
     <div class="flex flex-wrap justify-center items-center gap-5">
       {#each testimonials as t}
-        <div class="bg-amber-950 flex flex-col justify-center items-center gap-5 text-white p-8 rounded-xl shadow md:w-180 h-96">
+        <div
+          data-aos="fade-up"
+          class="bg-amber-900 flex flex-col justify-center items-center gap-5 text-white p-8 rounded-xl shadow md:w-180 h-96"
+        >
           <img
             src={t.img}
             alt={t.name}
@@ -148,20 +169,34 @@
 </section>
 
 <!-- Newsletter Section -->
-<section class="bg-[#1c1b18] text-white py-16">
-  <div class="max-w-4xl mx-auto text-center px-6">
-    <h3 class="lg:text-7xl text-3xl font-bold mb-6">Stay Up To Date</h3>
-    <p class="mb-8 text-gray-400">
-      Be the first to know about new collections, special events, and what's
-      going on at Caffeine.
+<section class="relative text-white py-24">
+  <!-- Overlay with reduced opacity -->
+  <div class="absolute inset-0 bg-black opacity-20"></div>
+  <!-- Change opacity here -->
+
+  <!-- Background image -->
+  <div
+    class="absolute inset-0 bg-cover bg-center"
+    style="background-image: url('https://plus.unsplash.com/premium_photo-1675237625862-d982e7f44696?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"
+  ></div>
+
+  <!-- Content inside the section -->
+  <div class="relative z-10 max-w-4xl mx-auto text-center px-6">
+    <h3 class="lg:text-8xl text-4xl font-bold mb-8">Stay Up To Date</h3>
+    <!-- Increased text size -->
+    <p class="mb-8 text-2xl">
+      <!-- Increased paragraph text size -->
+      Be the first to know about new collections, events, and what's going
+      on at Caffeine.
     </p>
     <div class="flex items-center justify-center">
       <input
         type="email"
         placeholder="Enter your email"
-        class="px-6 py-3 w-full rounded border-1 border-white rounded-tr-none rounded-br-none"
+        class="px-6 py-3 w-full rounded border-1 border-white rounded-tr-none rounded-br-none placeholder-white"
       />
-      <button class="bg-white text-black px-6 py-3 rounded hover:bg-gray-200 rounded-bl-none rounded-tl-none border-1 border-white cursor-pointer"
+      <button
+        class="bg-white text-black px-6 py-3 rounded hover:bg-gray-200 rounded-bl-none rounded-tl-none border-1 border-white cursor-pointer"
         >Subscribe</button
       >
     </div>
@@ -170,5 +205,5 @@
 
 <!-- Footer -->
 <footer class="bg-black text-gray-400 text-center p-6">
-  <p>Contact Us: Caffeine@Gmail.Com | (321) 562-57420</p>
+  <p>Contact Us: caffeine@Gmail.Com | (321) 562-57420</p>
 </footer>
